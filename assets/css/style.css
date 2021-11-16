@@ -215,3 +215,10 @@
     left: 49%;
     font-size: 13px;
   }
+  .song{
+    border:1px solid #F5F5F5;
+  }
+  .song:hover{
+    cursor: pointer;
+    border:1px solid #EC1F55;
+  }
