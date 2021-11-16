@@ -222,3 +222,6 @@
     cursor: pointer;
     border:1px solid #EC1F55;
   }
+  .btn-repeat:hover, .btn-prev:hover, .btn-next:hover, .btn-random:hover, .btn-minus:hover, .btn-plus:hover,.btn-toggle-play:hover{
+    cursor: pointer;
+  }
