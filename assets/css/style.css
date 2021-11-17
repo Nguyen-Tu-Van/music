@@ -109,24 +109,30 @@
   }
   
   .progress {
+    border: solid 1px #C4D8E8;
+    border-radius: 8px;
+    height: 7px;
     width: 100%;
-    -webkit-appearance: none;
-    height: 6px;
-    background: #d3d3d3;
     outline: none;
-    opacity: 0.7;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
+    transition:all 450ms ease-in;
+    -webkit-appearance: none;
+    background-color: #EC1F55;
+  }
+
+    .progress::-webkit-slider-thumb {
+      background-color:#ec1f55;
+      cursor: pointer;
   }
   
-  .progress::-webkit-slider-thumb {
+  /* .progress::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 12px;
-    height: 6px;
-    background-color: var(--primary-color);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-image: url('./assets/image/song1.png');
     cursor: pointer;
-  }
+  } */
   
   /* PLAYLIST */
   .playlist {
@@ -225,3 +231,5 @@
   .btn-repeat:hover, .btn-prev:hover, .btn-next:hover, .btn-random:hover, .btn-minus:hover, .btn-plus:hover,.btn-toggle-play:hover{
     cursor: pointer;
   }
+
+

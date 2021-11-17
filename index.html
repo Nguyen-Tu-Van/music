@@ -67,7 +67,6 @@
     
   </div>
 </div>
-
 <script>
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
@@ -255,6 +254,10 @@
           audio.ontimeupdate = function(){
             let process = this.currentTime/this.duration*100;
             progress.value = Math.round(process?process:0); 
+            let value = (progress.value-progress.min)/(progress.max-progress.min)*100;
+            if(value<50) value = value + 1;
+            else value = value = value - 1;
+            progress.style.background = 'linear-gradient(to right, #f24f78 0%, #f24f78 ' + value + '%, #fff ' + value + '%, white 100%)';
           }
 
           // Kéo đến vị trí cần thả
@@ -263,6 +266,10 @@
             audio.currentTime = localSound;
             audio.pause();
             cdThumbAnimation.pause();
+            let value = (this.value-this.min)/(this.max-this.min)*100;
+            if(value<50) value = value + 0.5;
+            else value = value = value - 0.5;
+            this.style.background = 'linear-gradient(to right, #f24f78 0%, #f24f78 ' + value + '%, #fff ' + value + '%, white 100%)';
           }
           progress.onchange = function(e){
             if(!player.classList.contains('playing'))
