@@ -58,7 +58,19 @@
     </div>
 
     <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" style="transition: all 1s;">
-
+    <b id="speed"> speed
+      <select id="speedValue">
+        <option value="0.5">x 0.5</option>
+        <option value="0.75">x 0.75</option>
+        <option value="1" selected>x 1</option>
+        <option value="1.25">x 1.25</option>
+        <option value="1.5">x 1.5</option>
+        <option value="1.75">x 1.75</option>
+        <option value="2">x 2</option>
+        <option value="3">x 3</option>
+      </select>
+    </b>
+    <b id="time">10/200 s</b>
     <audio id="audio" src=""></audio>
   </div>
 
@@ -83,6 +95,8 @@
     const minus = $('.btn-minus');
     const plus = $('.btn-plus');
     const widthImg = $('.cd').offsetWidth;
+    const speed = $('#speedValue');
+    const time = $('#time');
     const cdThumbAnimation = cdThumb.animate([{
             transform: 'rotate(360000deg)'
           }],{
@@ -252,12 +266,15 @@
           }
           // Load thanh progress
           audio.ontimeupdate = function(){
+            audio.playbackRate = speed.value;
             let process = this.currentTime/this.duration*100;
             progress.value = Math.round(process?process:0); 
             let value = (progress.value-progress.min)/(progress.max-progress.min)*100;
             if(value<50) value = value + 1;
             else value = value = value - 1;
             progress.style.background = 'linear-gradient(to right, #f24f78 0%, #f24f78 ' + value + '%, #fff ' + value + '%, white 100%)';
+            // set dữ liệu cho time
+            time.innerHTML = `${Math.round(this.currentTime)}/${Math.round(this.duration?this.duration:0)} s`;
           }
 
           // Kéo đến vị trí cần thả

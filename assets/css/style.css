@@ -37,7 +37,7 @@
   }
   
   .dashboard {
-    padding: 16px 16px 14px;
+    padding: 16px 16px 20px;
     background-color: #fff;
     position: fixed;
     top: 0;
@@ -232,4 +232,23 @@
     cursor: pointer;
   }
 
+  #time{
+    position: absolute;
+    right: 1.2em;
+    margin-top: 1.4em;
+    font-size:14px;
+  }
+
+  #speed{
+    position: absolute;
+    left: 1.2em;
+    margin-top: 1.4em;
+    font-size:14px;
+  }
+  select{
+    border: none;
+  }
+  select:hover{
+    cursor: pointer;
+  }
 
