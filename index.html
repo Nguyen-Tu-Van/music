@@ -287,6 +287,7 @@
               audio.play();
               cdThumbAnimation.play();
             }
+            document.title = app.currentSong.name+'-'+app.currentSong.singer;
           }
           // Load thanh progress
           audio.ontimeupdate = function(){
@@ -387,6 +388,7 @@
           this.loadCurrentSong(); 
           cdThumbAnimation.play();
           audio.play();
+          document.title = this.currentSong.name+'-'+app.currentSong.singer;
           if(!player.classList.contains('playing'))
           {
             player.classList.add('playing');
