@@ -72,14 +72,6 @@
         </select>
       </div>
       <div id="sound">
-        <div class="chart-layout__item" style="--percent: 10%"></div>
-        <div class="chart-layout__item" style="--percent: 20%"></div>
-        <div class="chart-layout__item" style="--percent: 40%"></div>
-        <div class="chart-layout__item" style="--percent: 90%"></div>
-        <div class="chart-layout__item" style="--percent: 80%"></div>
-        <div class="chart-layout__item" style="--percent: 40%"></div>
-        <div class="chart-layout__item" style="--percent: 10%"></div>
-        <div class="chart-layout__item" style="--percent: 20%"></div>
         <div class="chart-layout__item" style="--percent: 69%"></div>
         <div class="chart-layout__item" style="--percent: 96%"></div>
         <div class="chart-layout__item" style="--percent: 60%"></div>
@@ -102,14 +94,36 @@
         <div class="chart-layout__item" style="--percent: 60%"></div>
         <div class="chart-layout__item" style="--percent: 88%"></div>
         <div class="chart-layout__item" style="--percent: 40%"></div>
-        <div class="chart-layout__item" style="--percent: 10%"></div>
         <div class="chart-layout__item" style="--percent: 20%"></div>
+        <div class="chart-layout__item" style="--percent: 69%"></div>
+        <div class="chart-layout__item" style="--percent: 96%"></div>
+        <div class="chart-layout__item" style="--percent: 60%"></div>
+        <div class="chart-layout__item" style="--percent: 88%"></div>
         <div class="chart-layout__item" style="--percent: 40%"></div>
-        <div class="chart-layout__item" style="--percent: 90%"></div>
-        <div class="chart-layout__item" style="--percent: 80%"></div>
-        <div class="chart-layout__item" style="--percent: 40%"></div>
-        <div class="chart-layout__item" style="--percent: 10%"></div>
-        <div class="chart-layout__item" style="--percent: 20%"></div>
+
+
+        <div class="chart-layout__item heart" style="--percent: 10%;margin-bottom:17px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 25%;margin-bottom:15px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 40%;margin-bottom:13px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 50%;margin-bottom:11px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 65%;margin-bottom:9px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 70%;margin-bottom:7px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 78%;margin-bottom:5px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 80%;margin-bottom:3px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 80%;margin-bottom:1px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 80%;"></div>
+        <div class="chart-layout__item heart" style="--percent: 80%;margin-bottom:1px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 80%;margin-bottom:3px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 78%;margin-bottom:5px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 70%;margin-bottom:7px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 65%;margin-bottom:9px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 50%;margin-bottom:11px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 40%;margin-bottom:13px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 25%;margin-bottom:15px;"></div>
+        <div class="chart-layout__item heart" style="--percent: 10%;margin-bottom:17px;"></div>
+
+
+
         <div class="chart-layout__item" style="--percent: 69%"></div>
         <div class="chart-layout__item" style="--percent: 96%"></div>
         <div class="chart-layout__item" style="--percent: 60%"></div>
@@ -126,6 +140,12 @@
         <div class="chart-layout__item" style="--percent: 88%"></div>
         <div class="chart-layout__item" style="--percent: 40%"></div>
         <div class="chart-layout__item" style="--percent: 10%"></div>
+        <div class="chart-layout__item" style="--percent: 20%"></div>
+        <div class="chart-layout__item" style="--percent: 69%"></div>
+        <div class="chart-layout__item" style="--percent: 96%"></div>
+        <div class="chart-layout__item" style="--percent: 60%"></div>
+        <div class="chart-layout__item" style="--percent: 88%"></div>
+        <div class="chart-layout__item" style="--percent: 40%"></div>
         <div class="chart-layout__item" style="--percent: 20%"></div>
         <div class="chart-layout__item" style="--percent: 69%"></div>
         <div class="chart-layout__item" style="--percent: 96%"></div>
@@ -144,13 +164,7 @@
   </div>
 </div>
 <script>
-    var soundPay = setInterval(function() {
-      for(let i = 0 ; i < 60 ; i++){
-        
-        let value = Math.round(Math.random()*100);
-        document.getElementsByClassName('chart-layout__item')[i].style.height = `${value}%`;
-      }
-    },300);
+    let soundPay,bool=false;
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
     const heading = $('header h2');
@@ -168,6 +182,7 @@
     const widthImg = $('.cd').offsetWidth;
     const speed = $('#speedValue');
     const time = $('#time');
+    const sound = $('#sound');
     const cdThumbAnimation = cdThumb.animate([{
             transform: 'rotate(360000deg)'
           }],{
@@ -361,12 +376,28 @@
               cdThumbAnimation.play();
               // sound
               soundPay = setInterval(function() {
-                for(let i = 0 ; i < 60 ; i++){
-                  
+                let color = ['red','orange','yellow','cyan'];
+                for(let i = 0 ; i < 75 ; i++){
                   let value = Math.round(Math.random()*100);
-                  document.getElementsByClassName('chart-layout__item')[i].style.height = `${value}%`;
+                  if(i<28 || i>=47) document.getElementsByClassName('chart-layout__item')[i].style.height = `${value}%`;
+                  if(sound.classList.contains('active'))
+                  {
+                    document.getElementsByClassName('chart-layout__item')[i].style.background = color[Math.floor(Math.random()*4)];
+                    if(i>=28 && i<47)
+                    {
+                      if(bool==false) {
+                        document.getElementsByClassName('chart-layout__item')[i].style.background = "red";
+                      }
+                      else{
+                        document.getElementsByClassName('chart-layout__item')[i].style.background = "white";
+                      }
+                    }
+                  }
+                  else document.getElementsByClassName('chart-layout__item')[i].style.background = "#05cbfd";
                 }
-              },300);
+                if(bool==false) bool = true;
+                else bool = false;
+              },400);
             }
             document.title = app.currentSong.name+'-'+app.currentSong.singer;
           }
@@ -455,6 +486,12 @@
             else if(app.volume<0.5) document.getElementById('result').innerHTML = '<i class="fas fa-volume-down"></i>';
             else document.getElementById('result').innerHTML = '<i class="fas fa-volume-up"></i>';
           }
+
+          // Khi click sound
+          sound.onclick = function(e){
+            if(sound.classList.contains('active'))  sound.classList.remove('active');
+            else sound.classList.add('active')
+          }
         },
         selectSongs: function(){
           // Chọn bài hát
@@ -509,7 +546,6 @@
           this.loadEvents();
         },
         start: function(){
-            clearInterval(soundPay);
             // Định nghĩa các thuộc tính của object
             this.defineProperties();
 

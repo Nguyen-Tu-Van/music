@@ -261,6 +261,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
+    cursor: pointer;
 }
 
   .chart-layout__item {
@@ -271,6 +272,7 @@
     background-color: #05cbfd;
     animation: growth ease-in 1s;
     align-self: center;
+    transition: all 0.7s;
 }
 @keyframes growth {
   from{
@@ -279,4 +281,8 @@
   to{
       height: calc(var(--percent));
   }
+}
+
+.heart{
+  align-self : flex-end;
 }
