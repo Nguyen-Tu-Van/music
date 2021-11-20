@@ -37,7 +37,7 @@
   }
   
   .dashboard {
-    padding: 16px 16px 20px;
+    padding: 16px 16px 2px;
     background-color: #fff;
     position: fixed;
     top: 0;
@@ -232,19 +232,6 @@
     cursor: pointer;
   }
 
-  #time{
-    position: absolute;
-    right: 1.2em;
-    margin-top: 1.4em;
-    font-size:14px;
-  }
-
-  #speed{
-    position: absolute;
-    left: 1.2em;
-    margin-top: 1.4em;
-    font-size:14px;
-  }
   select{
     border: none;
   }
@@ -252,3 +239,44 @@
     cursor: pointer;
   }
 
+  .info{
+    display: flex;
+    justify-content: space-between;
+  }
+  .info #time{
+    text-align: right;
+    flex:1;
+  }
+  .info #sound{
+    text-align: center;
+    flex:1;
+  }
+  .info #speed{
+    flex:1;
+  }
+
+  .info #sound {
+    height: 30px;
+    background-color: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+  .chart-layout__item {
+    width: 2px;
+    color: #fff;
+    text-align: center;
+    height: var(--percent);
+    background-color: #05cbfd;
+    animation: growth ease-in 1s;
+    align-self: center;
+}
+@keyframes growth {
+  from{
+      height: calc(var(--percent) - 50%);
+  }
+  to{
+      height: calc(var(--percent));
+  }
+}
